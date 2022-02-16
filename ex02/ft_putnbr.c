@@ -6,7 +6,7 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 03:39:52 by asoler            #+#    #+#             */
-/*   Updated: 2022/02/16 20:12:09 by asoler           ###   ########.fr       */
+/*   Updated: 2022/02/16 20:29:12 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	count_digits(int nb)
 
 void	ft_putnbr(int nb)
 {
-	char	aux;
+	// char	aux;
 	int			i;
 	int size;
 	size = count_digits(nb);
@@ -44,12 +44,6 @@ void	ft_putnbr(int nb)
 		// }
 		nb *= -1;
 	}
-	if (nb <= 9)
-	{
-		aux = nb + 48;
-		write(1, &aux, 1);
-	}
-
 	while (nb > 9)
 	{
 		digits[i] = (nb % 10) + 48;
@@ -67,5 +61,5 @@ void	ft_putnbr(int nb)
 
 int	main()
 {
-	ft_putnbr(-2147483649);
+	ft_putnbr(2147483648);
 }
