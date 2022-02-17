@@ -6,42 +6,29 @@
 /*   By: asoler <asoler@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 03:39:52 by asoler            #+#    #+#             */
-/*   Updated: 2022/02/17 00:26:06 by asoler           ###   ########.fr       */
+/*   Updated: 2022/02/17 03:31:34 by asoler           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	count_digits(int nb)
+long	is_negative(long n)
 {
-	int counter;
-
-	counter = 0;
-	while (nb > 9)
-	{
-		nb = nb % 10;
-		counter++;
-	}
-	return (counter);
+	write(1, "-", 1);
+	n *= -1;
+	return (n);
 }
 
 void	ft_putnbr(int nb)
 {
-	// char	aux;
-	int			i;
-	int size;
-	size = count_digits(nb);
-	char	digits[size+1];
-	long n;
+	int		i;
+	char	digits[13];
+	long	n;
 
 	n = nb;
 	i = 0;
-	
 	if (n < 0)
-	{
-		write(1, "-", 1);
-		n *= -1;
-	}
+		n = is_negative(n);
 	while (n > 9)
 	{
 		digits[i] = (n % 10) + 48;
@@ -55,9 +42,4 @@ void	ft_putnbr(int nb)
 		i--;
 	}
 	write(1, &digits[i], 1);
-}
-
-int	main()
-{
-	ft_putnbr(-2147483649);
 }
